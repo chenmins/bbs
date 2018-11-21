@@ -71,6 +71,12 @@
                         </li>
                     </g:each>
                 </ul>
+                <g:if env="development">
+                    development
+                </g:if>
+                <g:if env="production">
+                    production
+                </g:if>
             </div>
         </section>
     </div>

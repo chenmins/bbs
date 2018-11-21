@@ -1,4 +1,75 @@
 ---
+#支持swagger文档
+org:
+    grails:
+        jaxrs:
+            swagger:
+                enabled: true
+                resourcePackage: org.chenmin.bbs
+                version: '1.0'
+                title: JAX-RS Fly API
+                description: An example set of APIs using the JAX-RS and Grails integration.
+                contact: Chenmin
+                license: Apache 2.0
+                licenseUrl: https://www.apache.org/licenses/LICENSE-2.0
+---
+#系统配置
+fly:
+    site: 社区论坛
+---
+grails:
+#    #配置文件
+#    config:
+#        locations:
+#            classpath : 'fly.properties'
+    #支持跨域
+    cors:
+        enabled: true
+    #支持邮件
+    mail:
+        default :
+            from : 'ibm_chen@163.com'
+        host : 'smtp.163.com'
+        port : '465'
+        username : 'ibm_chen@163.com'
+        password : ${MAIL_PASSWORD}
+        props :
+            mail.smtp.auth : 'true'
+            mail.smtp.socketFactory.port : '465'
+            mail.smtp.socketFactory.class : 'javax.net.ssl.SSLSocketFactory'
+            mail.smtp.socketFactory.fallback : 'false'
+---
+environments:
+    production:
+        dataSource:
+            pooled: true
+            jmxExport: true
+            driverClassName: com.mysql.jdbc.Driver
+            username: ${JDBC_USERNAME}
+            password: ${JDBC_PASSWORD}
+            dbCreate: update
+            dialect : org.hibernate.dialect.MySQL5InnoDBDialect
+            url: ${JDBC_LINK}
+            properties:
+                jmxEnabled: true
+                initialSize: 5
+                maxActive: 50
+                minIdle: 5
+                maxIdle: 25
+                maxWait: 10000
+                maxAge: 600000
+                timeBetweenEvictionRunsMillis: 5000
+                minEvictableIdleTimeMillis: 60000
+                validationQuery: SELECT 1
+                validationQueryTimeout: 3
+                validationInterval: 15000
+                testOnBorrow: true
+                testWhileIdle: true
+                testOnReturn: false
+                jdbcInterceptors: ConnectionState
+                defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+
+---
 grails:
     profile: web
     codegen:
