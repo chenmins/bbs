@@ -1,5 +1,5 @@
 <a class="fly-logo" href="/">
-    <img src="//nginx.chenmin.org/res/images/logo.png" alt="layui">
+    <img src="//${grailsApplication.config.fly.static}/res/images/logo.png" alt="layui">
 </a>
 <ul class="layui-nav fly-nav layui-hide-xs">
     <li class="layui-nav-item layui-this">

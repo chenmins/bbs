@@ -6,10 +6,10 @@
         <g:layoutTitle default="Grails"/> - <g:meta name="fly.site" ></g:meta>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="//nginx.chenmin.org/res/layui/css/layui.css">
-    <link rel="stylesheet" href="//nginx.chenmin.org/res/css/global.css">
+    <link rel="stylesheet" href="//${grailsApplication.config.fly.static}/res/layui/css/layui.css">
+    <link rel="stylesheet" href="//${grailsApplication.config.fly.static}/res/css/global.css">
     <script src="//apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
-    <script src="//nginx.chenmin.org/res/layui/layui.js"></script>
+    <script src="//${grailsApplication.config.fly.static}/res/layui/layui.js"></script>
     <g:layoutHead/>
 </head>
 <body>
@@ -30,13 +30,13 @@
     layui.cache.user = {
         username: '游客'
         ,uid: -1
-        ,avatar: '//nginx.chenmin.org/res/images/avatar/00.jpg'
+        ,avatar: '//${grailsApplication.config.fly.static}/res/images/avatar/00.jpg'
         ,experience: 83
         ,sex: '男'
     };
     layui.config({
         version: "3.0.0"
-        ,base: '//nginx.chenmin.org/res/mods/' //这里实际使用时，建议改成绝对路径
+        ,base: '//${grailsApplication.config.fly.static}/res/mods/' //这里实际使用时，建议改成绝对路径
     }).extend({
         fly: 'index'
     }).use('fly');
